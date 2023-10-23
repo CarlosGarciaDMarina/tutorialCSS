@@ -137,6 +137,33 @@ h2 {
     transform: rotate(-45deg);
 }
 
+.caja1 {
+    background: yellow;
+    width: 200px;
+    height: 200px;
+
+}
+ 
+.caja2 {
+    background: blue;
+    width: 200px;
+    height: 200px;
+    position: relative;
+    justify-content: center;
+}
+
+.caja3 {
+    background: red;
+    width: 200px;
+    height: 200px;
+}
+
+.caja4 {
+    background: green;
+    width: 200px;
+    height: 200px;
+}
+
 
 /*
 *
