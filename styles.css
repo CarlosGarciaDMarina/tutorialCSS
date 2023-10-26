@@ -262,7 +262,7 @@ h3 {
 *   
 *   ::first-line    | block
 *   ::first-letter  | block
-*   ::placeholder
+*   ::placeholder   
 *   ::after         || HIJOS -CONTENT (NECESARIO) - INLINE
 *   ::before         || HIJOS -CONTENT (NECESARIO) - INLINE
 *   ::selection         || HIJOS -CONTENT (NECESARIO) - INLINE
@@ -284,27 +284,35 @@ h3 {
 }
 
 /*
-*       ***PSEUDO-ELEMENTOS***
-*   
-*   
-*   
-*   
-*
-*    
-*   
-*
+*       ***PSEUDO-CLASES***
+*   :hover      - cuando el raton se pone encima del elemento
+*   :link       - Cuando no has visitado un enlace
+*   :visited    - Cuando ya has visitado un enlace
+*   :active     - Cuando hacemos clic y lo mantenemos en algun elemento
+*   :focus      - Cuando esta enfocado en un elemento
+*   :lang       - Se refiere al lenguaje, es como una funcion donde se le mete un parametro(el lenguaje) 
 *
 */
 
 /*
-*       ***PSEUDO-ELEMENTOS***
-*   
-*   
-*   
-*   
+*       ***OBJECT FIT:FIL***
+*   Contain     - Hace que las resoluciones se ajusten al contenido
+*   Cover       - La imagen se extiende a todo el contenido
+*   None        - Usa las propiedades por defectos
+*   Scaler-down - Se queda con la mejor propiedad entre contain y none
 *
-*    
-*   
+*       ***OBJECT POSITION***
+*   Left     - Posiciona la imagen hacia la izda
+*   Right    - Posiciona la imagen hacia la dcha
+*   Bottom   - Posiciona la imagen hacia abajo
+*   Top      - Posiciona la imagen hacia arriba
+*/
+
+/*
+*       ***CURSOR***
+*   Cambia el cursor cuando esta encima de un elemento
+*   https://www.w3schools.com/cssref/pr_class_cursor.php
 *
 *
 */
+
