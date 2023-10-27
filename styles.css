@@ -103,6 +103,13 @@
 *
 */
 
+* {
+    margin: 0;
+    padding: 0;
+    font-weight: 100;
+    font-family: 'Sen', sans-serif;
+}
+
 h2 {
     background-color: red;
     display: inline-block;
@@ -313,5 +320,100 @@ h3 {
 *
 */
 
+/*
+*   ***FLEXBOX***
+*   
+*   Es una forma de maketar webs
+*
+*   Flex requiere de flex container y un flex item
+*   flex container contiene los items del flex item
+*   flex container se comporta como un bloque 
+*   cross axis - eje y - se divide en cross start y cross end, funciona top to bottom
+*   main axis - eje x - se divide en main start y main end, funciona left to rigth
+*   solo los hijos heredan el flex del padre, los nietos NO
+*
+*   flex direction nos permite cambar la direcion del main y cross axis
+*   flex-wrap mantiene la integridad del contenido por ejemplo en una linea de 6 cajas, si disminuimos el tamaño mantiene el contenido
++       empujando las cajas a la fila de abajo
+*   flex-flow: flex direction + flex wrap;
+*   justify-content: pone el contenido en el centro (main axis)
+*       space-around: deja la mayor cantidad de spacio entre las cajas
+*       space-between: da margen auto a todas las cajas
+*       space-evenly: da un margin especifico para que cada caja tenga exactamente el mismo 
+*   align-items: pone el contenido en el centro (cross axis)
+*   align-self: propiedad con la que damos forma a los items (cros axis)
+*       flex-start: pone al principio del contenido y no se estira a lo largo del cross axis
+*       center: se centra verticalmente
+*       flex-end: pone al final del contenido
+*       baseline: ajustas lios items ajustando los margenes de abajo del contenido hacia arriba
+*       stretch: se estiran los items ocupando todo el alto de la caja
+*   align-content: se utiliza para cuando hay varias columnas y lo ajusta a como tengamos la opcion de align-items
+*
+*   margin-(direction)
+*   
+*   flex-grow: (espacio asignado + sobrante / grows) (Main axis)
+*   flex-shrink: espacio que cede (Main axis)
+*   flex-basis: medicion antes de encogerse (en auto(defect value) agarra el width y, si no, tiene mas propiedad) (Main axis)
+*   flex: flex-grow, flex-shrink, flex-basis (al menos el primer parametro es obligatorio)
+*   Order: (Como el Z index, pero en el eje en el que apunta el main axis) ordena de izda a dcha
+*
+*/
 
+.flex-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: #444;
+    margin: 50px 50px;
+}
+
+.form {
+    min-width: 400px;
+    flex: 1;
+    text-align: center;
+    padding: 30px;
+}
+
+.form__input{
+    width: 100%;
+    padding: 7px;
+    margin: 6px 0;
+    border: none;
+    border-bottom: 3px solid #5dd;
+}
+
+.form__input:focus {
+    background: #222;
+}
+
+.form textarea{
+    min-height: 140px;
+}
+
+.form-img {
+    flex: 1;
+    padding: 10px;
+    display: flex;
+}
+
+.form-img div{
+    padding: 10px;
+}
+
+.img-container {
+    margin: auto;
+}
+
+.img-container div {
+    text-align: center;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+.form-img img {
+    width: 80%;
+    margin: auto; 
+
+}
 

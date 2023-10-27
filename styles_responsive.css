@@ -13,7 +13,7 @@
 }
 
 .nav {
-    background-color: #48e;
+    background-color: #69c;
 }
 
 .nav__li {
@@ -42,8 +42,8 @@
 }
 
 .nav__responsive-button-container {
-    position: absolute;
-    width: 100%;
+    position:absolute;
+    width: 90%;
     font-size: 25px;
     background-color: #69c;
     margin-top: -64px;
