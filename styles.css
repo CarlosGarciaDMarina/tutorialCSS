@@ -364,8 +364,11 @@ h3 {
     align-items: center;
     flex-wrap: wrap;
     justify-content: center;
-    background: #444;
+    background: #333;
     margin: 50px 50px;
+    padding: 20px;
+    border: 8px solid transparent;
+    outline: 4px solid white;
 }
 
 .form {
@@ -373,6 +376,7 @@ h3 {
     flex: 1;
     text-align: center;
     padding: 30px;
+    order:5;
 }
 
 .form__input{
@@ -380,21 +384,29 @@ h3 {
     padding: 7px;
     margin: 6px 0;
     border: none;
-    border-bottom: 3px solid #5dd;
+    border-bottom: 3px solid #1c7;
+    background: transparent;
+    color: #fff;
 }
 
 .form__input:focus {
-    background: #222;
+    background: linear-gradient(to bottom, transparent, #222);
+    outline: none;
+    border-bottom: 3px solid #5f9;
 }
 
 .form textarea{
     min-height: 140px;
+    resize: none;
 }
 
 .form-img {
     flex: 1;
     padding: 10px;
     display: flex;
+    min-width: 150px;
+    max-width: 300px;
+    order: 2;
 }
 
 .form-img div{
@@ -415,5 +427,200 @@ h3 {
     width: 80%;
     margin: auto; 
 
+}
+
+.form input[type="submit"] {
+    background-color: #094;
+    border-bottom: none;
+    padding: 12px;
+
+}
+
+.form input[type="submit"]:hover {
+    background-color: #072;
+    border-bottom: none;
+    padding: 12px;
+
+}
+
+.form input[type="submit"]:focus {
+    background-color: #094;
+
+}
+
+.form input[type="submit"]:active {
+    background: linear-gradient(to bottom, #072, #050);
+
+}
+
+/*
+*    **********GRID***********
+*   Es una forma de trabajar con layout y es un valor de display, se refiere a rejilla
+*
+*   Grid container - Son los padres de los grid items (elementos)
+*   Grid item - Son los hijos de los grid container (padres de los elementos)
+*   Grid Cell - Son cada una de las divisiones del grid (cada rejilla)
+*   Grid Tracks (column and Row) - las filas y las columnas en los que se divide el grid
+*   Grid Area - Son las areas que seleccionamos dentro del grid, deben ser consecutivas
+*   Grid Line (Column line and Row line) - las lineas totales que dividen todo el grid al completo
+*   
+*   ---------Propiedades-------
+*   Grid-template-rows (grid-container)     -
+*   Grid-template-columns (grid container)  -
+*
+*   Grid-row-gap (grid container)           -
+*   Grid-column-gap (grid container)        -
+*   Grid-gap: row column (grid container)   -
+*
+*   Grid-row-start (grid-item)
+*   Grid-row-end (grid-item)
+*   Grid-columns-start (grid-item)
+*   Grid-columns-end (grid-item)
+*   Grid-row ((grid-row-start) / span(identifica por filas) (grid-row-end)) (grid-item) ******************
+*   Grid-column ((grid-column-start) / span(identifica por columnas) (grid-column-end)) (grid-item) ******
+*
+*   unidades "auto" y fr(FlexRow)
+*   repeat(cantidad,tamaño/s)
+*
+*   ----------- Grid implicito y explicito ----------
+*
+*   3 nuevas propiedes del grid implicito
+*   grid-auto-rows (igual que el template)
+*   grid-auto-columns (igual que el template)
+*   grid-auto-flow:Row(default), Column y Dense
+*
+*
+*   ----------- Grid dinámico -----------------------
+*
+*   Estructuras autoajustables   
+*
+*   min-max()
+*   min-content
+*   max-content
+*
+*   cantidad
+*
+*   auto-fill
+*   auto-fit
+*
+*
+*   -------- ALINEACION Y CONTROL DE FLUJO ---------
+*
+*   diferencia con flex: 
+*   La alineacion es dentro de cada celda y no alineacion total del flex container
+*   Cada celda seria un flex container
+*
+*   stretch(default) - start - center -end
+*   place-items: align-items , justify-items
+*
+*   -------- ALINEACION DE FILAS Y COLUMNAS ---------
+*
+*   justify-content (horizontalmente)
+*   align-content (verticalmente)
+*   stretch(default) - start - center -end*
+*   mas las de flex:
+*                   *space-around
+*                   *space-between
+*                   *space-evenly
+*
+*   ----------APLICADO AL GRID ITEM ----------
+*   align-self
+*   justify-self
+*   place-self: align-self , justify-self
+*
+*   stretch(default) - start - center -end
+*   order (igual que en flex)
+*
+*/
+
+.grid-container {
+    display: grid;
+    grid-template-rows: repeat(5, 150px); /* repeat(nº de filas, unidad de medida (px, em, ...) */
+    grid-template-columns: repeat(3, 150px); /* repeat(nº de columnas, unidad de medida (px, em, ...) */
+    justify-content: center;
+    grid-gap: 10px; /* Espacio entre cada celda */
+    background-color: #666;
+    margin: 10px;
+    padding: 10px;
+    grid-auto-flow: dense; /* Rellena los campos que van a quedarse vacios */
+    grid-auto-rows: 1fr; /* Las filas que van a crear automaticamente */
+    grid-auto-columns: 1fr; /* Las columnas que van a crear automaticamente */
+}
+
+.grid-item {
+    border: 4px solid #000;
+    background-color: #fff;
+}
+
+.grid-item:first-child {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 2;
+    background-color: orangered;
+}
+
+.grid-item:nth-child(2) {
+    grid-row: 1 / span 2;
+    background-color: aqua;
+}
+
+.grid-item:nth-child(9) {
+    grid-row: 5;
+    grid-column: 1 / span 3;
+    background-color: salmon;
+}
+
+.grid-container-d {
+    display: grid;
+    grid-template-rows: repeat(auto-fill, 150px); /* repeat(nº de filas, unidad de medida (px, em, ...) */
+    grid-template-columns: repeat(3, minmax(100px,200px)); /* repeat(nº de columnas, unidad de medida (px, em, ...) */
+    justify-content: center;
+    grid-gap: 10px; /* Espacio entre cada celda */
+    background-color: #666;
+    margin: 10px;
+    padding: 10px;
+    grid-auto-flow: dense; /* Rellena los campos que van a quedarse vacios */
+    grid-auto-rows: 1fr; /* Las filas que van a crear automaticamente */
+    grid-auto-columns: 1fr; /* Las columnas que van a crear automaticamente */
+    
+
+}
+
+.grid-item-d {
+    border: 4px solid #000;
+    background-color: #fff;
+
+}
+
+.grid-container-a {
+    display: grid;
+    background: #444;
+    margin: 10px;
+    grid-template-areas: 
+     "header header header"
+     "aside main main"
+     "aside main main"
+     "footer footer footer";
+}
+
+.grid-header {
+    background: #f96;
+    grid-area: header;
+
+}
+
+.grid-main {
+    background: #96f;
+    grid-area: main;
+
+}
+
+.grid-aside {
+    background: #888;
+    grid-area: aside;
+}
+
+.grid-footer {
+    background: #6f9;
+    grid-area: footer;
 }
 
