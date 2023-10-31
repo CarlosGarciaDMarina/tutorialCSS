@@ -4,110 +4,105 @@
 * {
     font-family: 'Sen', sans-serif;
     font-weight: 100;
-    margin: 0;
-    padding: 0;
-}
-
-.nav__responsive-ul {
-    display: none;
-}
-
-.nav {
-    background-color: #69c;
-}
-
-.nav__li {
-    display: inline-block;
-    padding: 9px;
-    color: #fff;
-}
-
-.nav__li:hover > a {
-    color: #bbb;
-}
-
-.nav__li:hover {
-    color: #bbb;
-}
-
-.nav__li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.nav__li i {
-    box-sizing: border-box;
-    text-align: right;
-    margin-right: 5px;
-}
-
-.nav__responsive-button-container {
-    position:absolute;
-    width: 90%;
-    font-size: 25px;
-    background-color: #69c;
-    margin-top: -64px;
-    z-index: 100;
-}
-
-.nav__responsive-button {
-    padding: 6px 20px;
-    text-align: right;
-    width: 100%;
 
 }
+/*
+*   *********RESPONSIVE DESIGN************
+*
+*   Estructuras Flexibles (Contenedores flexibles, imágenes y videos flexibles)
+*   Media Queries
+*   
+*   @media se usa en consultaas de medios para aplicar diferentes estilos para diferentes tipos / dispositivos de medios
+*
+*   _ancho y alto de la ventana gráfica
+*   _ancho y alto del dispositivo
+*   _orientacion (¿la tableta / telefono está en modo vertical u horizontal?)
+*   _resolución
+*
+*       all
+*           Apto para todos los dispositivos
+*       print
+*           Destinado a material impreso y visalización de documentos en una pantalla en el modo de vista precia de impresión
+*       screen
+*           Destinado principalmente a las pantallas
+*       speech
+*           Destinado a sintetizadores de voz
+*
+*   Operadores AND | OR
+*
+*   Orientaciones: landscape y portrait
+*
+*
+*/
+/*
+*   ***SINTAXIS***
+*   tipo(Screen,print,all...)
+*   condicional (AND, OR), se pueden poner varios condicionales
+*
+*   @media + tipo + condicional + (condicion)
+*/
 
-@media only screen and (max-width: 500px){
-    .nav__ul {
-        display: none;
+.content {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.header, .main, .aside, .footer{
+    padding: 20px;
+}
+
+.header {
+    background: lightblue;
+    flex-basis: 60px;
+}
+
+.main {
+    background: slateblue;
+    flex-basis: 300px;
+    flex-grow: 2;
+    flex-shrink: 0;
+}
+
+.aside {
+    background: darkslateblue;
+    flex-basis: 200px;
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+
+.footer {
+    background: violet;
+    flex-grow: 1;
+}
+
+
+
+
+@media screen and (min-width:700px){
+    .content {
+        display: grid;
+        grid-template-rows: 80px 1fr 1fr 1fr 1fr 1fr 80px;
+        grid-template-columns: repeat(3, 1fr);
     }
 
-    .nav {
-        height: 37px;
-        width: 100%;
+    .header {
+        grid-column: 1 / span 3;
     }
 
-    .nav__responsive-ul {
-        display: block;
-        position: absolute;
-        width: 100%;
-        margin-top: 37px;
-        padding-top: 27px;
-        height: 37px;
+    .main {
+        grid-row: 2 / 6;
+        grid-column: 1 / span 2;
+
     }
 
-    .nav__li-container {
-        position: relative;
-        top: -1000px;
-        height: calc(100vh - 64px);
-        background: #9bf;
-        transition: all 1s;
-        z-index: 1;
-        width: 75%;
-        padding-top: 27px;
+    .aside {
+        grid-row: 2 / 6;
+
     }
 
-    .nav__responsive-li{
-        width: 100%;
-        padding: 9px 20px;
+    .footer {
+        grid-row: 6 / 7;
+        grid-column: 1 / span 3;
     }
-
-    .nav__responsive-li i{
-        box-sizing: border-box;
-        text-align: center;
-        margin-right: 5px;
-        width: 30px;
-        color: #016;
-    }
-
-    .nav__responsive-li a{
-        text-decoration: none;
-        color: #016;
-    }
-
-    .nav__responsive-ul:hover > .nav__li-container {
-        top: -27px;
-    }
-
-
 }

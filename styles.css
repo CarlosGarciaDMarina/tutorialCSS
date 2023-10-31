@@ -599,7 +599,21 @@ h3 {
      "header header header"
      "aside main main"
      "aside main main"
+     "aside main main"
+     "aside main main"
+     "aside main main"
+     "aside main main"
      "footer footer footer";
+    grid-template-rows: repeat(auto-fill,1fr);
+    height: 92vh;
+    border: 5px solid black;
+}
+.grid-item-a {
+    padding: 20px;
+}
+
+.grid-header ul li {
+    display: inline-block;
 }
 
 .grid-header {
@@ -624,3 +638,95 @@ h3 {
     grid-area: footer;
 }
 
+/*
+*   *********TRANSITION**********
+*
+*   transition-property: property/ies - all - none
+*   transition-duration: duration/s
+*   transition-delay: delay/s
+*   transition-timing-function: linear | ease | ease-in | ease-out | ease-in-out | step-start | step-end | steps(int, start|end) | initial | inherit;
+*   transition
+*
+* 
+*
+*  
+*
+*   
+*/
+
+.container-transition {
+    background: #86f;
+    padding: 20px 5px;
+}
+
+.caja-transition{
+    margin: 40px;
+    height: 100px;
+    background: #025;
+    width: 100px;
+    transition-property: background;
+    transition-duration: 1s;
+    position: relative;
+}
+.caja-transition:hover {
+    background: #6f9;
+}
+
+.caja-transition:first-child {
+    transition-timing-function: linear;
+}
+
+.caja-transition:nth-child(2) {
+    transition-timing-function: ease;
+
+}
+.caja-transition:nth-child(3) {
+    transition-timing-function: ease-in;
+
+}
+.caja-transition:nth-child(4) {
+    transition-timing-function: ease-out;
+
+}
+.caja-transition:nth-child(5) {
+    transition-timing-function: ease-in-out;
+
+}
+
+/* 
+*   *********ANIMATION**********
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*/
+
+
+
+
+
+/* 
+*   *********TRANSFORM**********
+*
+*   
+*
+*
+*
+*
+*
+*
+*
+*
+*  
+*/
