@@ -668,6 +668,7 @@ h3 {
     transition-duration: 1s;
     position: relative;
 }
+
 .caja-transition:hover {
     background: #6f9;
 }
@@ -695,30 +696,8 @@ h3 {
 
 /* 
 *   *********ANIMATION**********
-*
-*
-*
-*
-*
-*
-*
-*
-*
-*
-*
-*
-*
-*
-*
-*/
-
-
-
-
-
-/* 
-*   *********TRANSFORM**********
-*
+*   
+*   @keyframes
 *   
 *
 *
@@ -728,5 +707,241 @@ h3 {
 *
 *
 *
+*
+*
+*
+*
+*
+*/
+
+.container-animation {
+    background: #86f;
+    padding: 20px 5px;
+}
+
+.caja-animation{
+    background: #025;
+    margin: 40px;
+    height: 100px;
+    width: 100px;
+    animation-name: desplazarse;
+    animation-duration: 3s;
+    position:relative;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    animation-fill-mode: forwards; /* forwards: se queda como finaliza*/
+    animation-timing-function: cubic-bezier();
+
+}
+
+@keyframes desplazarse {
+    /*Tenemos 2 formas de hacer animaciones: con from-to y con porcentajes*/
+    /*from-to*/
+    /*
+    from {
+        position: relative;
+        left: 0;
+    } 
+    to {
+        left: 80%;
+    }
+    */
+    /*Con porcentajes */
+    
+        0% {
+        position: relative;
+        left: 0;
+        } 
+        50%{
+        background: green;
+            
+        }
+        100% {
+        left: 80%;
+        background: red;
+        }    
+    
+}
+
+/*cubic beizier*/
+/*
+* https://cubic-bezier.com/#.17,.67,.83,.67
+*/
+
+/* 
+*   *********TRANSFORM**********
+*
+*   Nos permite transformar el objeto en varias formas
+*
+*   transform: translateX(x) - translateY(y) translate(x - x,y) (si usamos % son relativos al elemento) - recomendado para animar
+*   transform: scale(xy - x,y) scaleX(x) - scaleY(y)
+*   transform: rotate(angleUnit) - rotateX(angleUnit) - rotateZ(angleUnit) - rotate3D(angleUnit) || angleUnit = deg - grad - rad - turn
+*   transform: skew(angleUnit)
+*   https://www.w3schools.com/cssref/css3_pr_transform.php
+*
+*   clip-path: https://bennettfeely.com/clippy/
 *  
 */
+
+.container-transform {
+    background: #86f;
+    padding: 20px 5px;
+}
+
+.caja-transform {
+    background: #025;
+    margin: 40px;
+    height: 100px;
+    width: 100px;
+    display: flex;
+    color: #fff;
+    transform: skew(45deg);
+}
+
+.b-transform {
+    margin: auto;
+    transform: skew(-45deg);
+}
+
+/* 
+*   *********BACKGROUND**********
+*
+*   background-attachment: scroll | fixed | inherit
+*   background-clip: border-box | padding-box |content-box
+*   background-origin - origen de la foto
+*  
+*/
+
+.container-back {
+    background: #86f;
+    padding: 20px 5px;
+    border: 2px solid #f00;
+    width: 400px;
+    height: 400px;
+    margin: 40px;
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/7/73/Lion_waiting_in_Namibia.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-clip: border-box;
+}
+
+/*
+*   **********VARIABLES**********
+*
+*   Las variables son espacios que se almacenan en memoria
+*
+*   --varName
+*   
+*   var()
+*
+*
+*
+*
+*
+*
+*
+*
+*/
+
+:root {
+    --color-rojo: #ff0000
+}
+
+.container-var {
+    margin: 15px;
+    padding: 30px;
+    width: 150px;
+    height: 150px;
+    background: #094;
+}
+
+.container-var2 {
+    margin: 15px;
+    padding: 30px;
+    width: 150px;
+    height: 150px;
+    background: var(--color-rojo)
+}
+
+/*
+*   **********Filter**********
+*
+*   
+*
+*   none
+*   blur(px) (desenfoque)
+*   brightness (0-1)
+*   contrast(number or %)
+*   grayscale(%)
+*   hue-rotate(deg) 
+*   invert(%) invertir los colores
+*   opacity(%)
+*   saturate(%)
+*   sepia(%)
+*   url("filters.svg#filter-id");
+*
+*
+*/
+
+.container-filter {
+    margin: 15px;
+    padding: 30px;
+    filter: contrast(30);
+    background-color: #fff;
+}
+
+.container-filter img {
+    height: 500px;
+}
+
+.caja-fil {
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    background: #ff0000;
+    margin: 40px;
+    border-radius: 50%;
+    filter: blur(20px);
+
+}
+
+.caja-fil:first-child{
+    animation: trasladar 2s alternate infinite;
+
+}
+
+@keyframes trasladar{
+    0%{
+        transform: translate(0);
+    } 
+    100% {
+        transform: translate(160px);
+
+    }
+}
+
+/*
+*   **********OTHER PROPERTIES**********
+*
+*   Direction: ltr | rtl | initial | inherit;
+*   letter Spacing
+*   Scroll-behavior MUY INTERESANTE
+*   user-selected
+*   text-shadow
+*    
+*   
+*   ------ atter() ------
+*   
+*   SELECTORES: https://www.w3schools.com/cssref/css_selectors.php
+*
+*/
+
+* {
+    scroll-behavior: smooth;
+
+}
+
+.container-scroll img {
+    height: 550px;
+    margin: 50px;
+}
